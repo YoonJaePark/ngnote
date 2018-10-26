@@ -1,0 +1,32 @@
+<nav style="display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 16px;">
+  <a>
+    <button [routerLinkActive]="['active']"
+            (click)="goToHome()"
+            mat-button>ngNote
+    </button>
+  </a>
+  <nav class="desktop-only">
+    <a *ngIf="afAuth.auth.currentUser">
+      <button [routerLinkActive]="['active']"
+              [routerLink]="['/boards']"
+              mat-button>Board
+      </button>
+    </a>
+  </nav>
+  <div style="flex-grow: 1;" class="flex-spacer"></div>
+  <a *ngIf="afAuth.auth.currentUser">
+    <button mat-button
+            [matMenuTriggerFor]="appMenu">
+      {{ afAuth.auth.currentUser.displayName }}
+    </button>
+  </a>
+  <mat-menu #appMenu="matMenu">
+    <button (click)="logout()"
+            mat-menu-item>
+      Logout
+    </button>
+  </mat-menu>
+</nav>
