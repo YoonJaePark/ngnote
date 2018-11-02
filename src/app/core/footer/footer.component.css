@@ -1,0 +1,15 @@
+.footer {
+    width: 100%;
+    background: #1c1d25;
+    padding: 8% 0;
+    color: #ffffff;
+}
+
+.footer .footer-wrap {
+   width: 80%;
+   margin: auto;
+}
+
+.footer .site-name {
+  
+}

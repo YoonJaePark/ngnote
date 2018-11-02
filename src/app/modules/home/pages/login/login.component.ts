@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DaoService} from '../../dao.service';
-import {AuthService} from '../../auth.service';
-import {map} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
+import { AuthService } from 'src/app/core/authentication/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +13,14 @@ export class LoginComponent implements OnInit {
               private route: ActivatedRoute,
               public afAuth: AngularFireAuth,
               public auth: AuthService) {
-
   }
 
   ngOnInit() {
   }
 
-
   loginGoogle() {
     this.auth.doGoogleLogin().then(res => {
+      console.log('res', res);
       this.router.navigate(['/boards']);
     });
   }

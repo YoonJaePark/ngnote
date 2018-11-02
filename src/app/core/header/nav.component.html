@@ -1,10 +1,14 @@
 <nav style="display: flex;
     flex-wrap: wrap;
+    z-index: 1;
+    background-color: #D50000;
+    color: #ffffff;
     align-items: center;
     padding: 8px 16px;">
   <a>
     <button [routerLinkActive]="['active']"
             (click)="goToHome()"
+            style="z-index: 1"
             mat-button>ngNote
     </button>
   </a>
@@ -12,6 +16,7 @@
     <a *ngIf="afAuth.auth.currentUser">
       <button [routerLinkActive]="['active']"
               [routerLink]="['/boards']"
+              style="z-index: 1"
               mat-button>Board
       </button>
     </a>

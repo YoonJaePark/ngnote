@@ -1,24 +1,27 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatMenuModule} from '@angular/material';
-import {environment} from '../environments/environment';
-import {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {AngularFireStorageModule} from '@angular/fire/storage';
-import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {MatIconModule} from '@angular/material/icon';
-import {NavComponent} from './nav/nav.component';
-import {MatInputModule} from '@angular/material/input';
-import {BoardsComponent} from './main/boards/boards.component';
-import {LoginComponent} from './main/login/login.component';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
-import {AuthGuard} from './auth.guard';
-import {AuthService} from './auth.service';
-import {AppRoutingModule} from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatCardModule } from '@angular/material';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { AuthGuard } from './core/guards/auth.guard';
+import { AuthService } from './core/authentication/auth.service';
+import { AppRoutingModule } from './app-routing.module';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { FeedComponent } from './shared/components/feed/feed.component';
+import { LoginComponent } from './modules/home/pages/login/login.component';
+import { NavComponent } from './core/header/nav.component';
+import { BoardsComponent } from './modules/home/pages/boards/boards.component';
+import { WriteFeedComponent } from './shared/components/write-feed/write-feed.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 
 @NgModule({
@@ -26,10 +29,14 @@ import {AppRoutingModule} from './app-routing.module';
     AppComponent,
     NavComponent,
     BoardsComponent,
-    LoginComponent
+    LoginComponent,
+    WriteFeedComponent,
+    FooterComponent,
+    FeedComponent
   ],
   imports: [
     AppRoutingModule,
+    ScrollDispatchModule,
     AngularFireModule.initializeApp(environment.firebase, 'angular'), // imports firebase/app needed for everything
     AngularFireDatabaseModule,
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
@@ -39,6 +46,7 @@ import {AppRoutingModule} from './app-routing.module';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatCardModule,
     MatIconModule,
     MatMenuModule,
     MatInputModule

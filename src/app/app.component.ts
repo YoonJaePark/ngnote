@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DaoService} from './dao.service';
+import {DaoService} from './core/http/dao.service';
 import {map} from 'rxjs/operators';
-import {AuthService} from './auth.service';
+import {AuthService} from './core/authentication/auth.service';
 
 export class Board {
   content: string;
@@ -21,7 +21,6 @@ export class Board {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  title = 'ngnote-example';
-  boards: any;
+  constructor() {
+  }
 }
