@@ -2,7 +2,9 @@
   <div class="card">
     <div class="card-content">
       <mat-form-field class="example-full-width">
-        <input matInput #message maxlength="256" placeholder="Message">
+          <!-- [(ngModel)]="adminUsernameText" #adminUsername="ngModel"  -->
+
+        <input matInput #message [(ngModel)]="text" maxlength="256" placeholder="Message">
         <mat-hint align="start"><strong>Please write your message</strong> </mat-hint>
         <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
       </mat-form-field>

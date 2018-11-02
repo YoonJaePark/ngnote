@@ -1,7 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {DaoService} from './core/http/dao.service';
-import {map} from 'rxjs/operators';
-import {AuthService} from './core/authentication/auth.service';
+import {Component} from '@angular/core';
 
 export class Board {
   content: string;

@@ -22,6 +22,7 @@ import { NavComponent } from './core/header/nav.component';
 import { BoardsComponent } from './modules/home/pages/boards/boards.component';
 import { WriteFeedComponent } from './shared/components/write-feed/write-feed.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { FooterComponent } from './core/footer/footer.component';
     MatCardModule,
     MatIconModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [
     AuthGuard, AuthService

@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class WriteFeedComponent implements OnInit {
   @Output() send = new EventEmitter<Object>();
+  text;
 
   constructor() { }
 
@@ -14,6 +15,7 @@ export class WriteFeedComponent implements OnInit {
   }
 
   onSend(e: String) {
-    this.send.emit(e);
+    this.send.emit(this.text);
+    this.text = '';
   }
 }
