@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -23,6 +22,9 @@ import { BoardsComponent } from './modules/home/pages/boards/boards.component';
 import { WriteFeedComponent } from './shared/components/write-feed/write-feed.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { MaterialModule } from './shared/module/material/material.module';
+import { FirebaseModule } from './shared/module/firebase/firebase.module';
 
 
 @NgModule({
@@ -38,20 +40,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     AppRoutingModule,
     ScrollDispatchModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angular'), // imports firebase/app needed for everything
-    AngularFireDatabaseModule,
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatIconModule,
-    MatMenuModule,
-    MatInputModule,
-    FormsModule
+    MaterialModule,
+    FormsModule,
+    FirebaseModule
   ],
   providers: [
     AuthGuard, AuthService

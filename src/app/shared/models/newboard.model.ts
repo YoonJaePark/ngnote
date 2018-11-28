@@ -1,5 +1,4 @@
-interface Board {
-  key: string;
+interface NewBoard {
   content: string;
   createdAt: number;
   email: string;

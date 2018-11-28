@@ -1,15 +1,23 @@
-<div style="
+<div
+  style="
   background-color: #ECEFF1;
   z-index: 0;
   position: relative;
   padding: 10px;
-  ">
+  "
+>
   <div style="width: 80%; margin:auto;">
     <app-write-feed (send)="onSend($event)"></app-write-feed>
   </div>
   <div style="width: 80%; margin:auto" *ngFor="let board of boards">
     <div style="margin:10px 0px;">
-      <app-feed [content]="board" class="example-item"></app-feed>
+      <app-feed
+        [content]="board"
+        [isMine]="afAuth.auth.currentUser.uid === board.uid"
+        (onOk)="onUpdate($event)"
+        (onDelete)="onDelete($event)"
+        class="example-item"
+      ></app-feed>
     </div>
   </div>
 </div>

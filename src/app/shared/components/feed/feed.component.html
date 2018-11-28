@@ -1,16 +1,45 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{content.user}}</mat-card-title>
-    <mat-card-subtitle>{{content.email}}</mat-card-subtitle>
+  <mat-card-header *ngIf="!isEdit">
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>
+      <div class="title-name">
+        <span>{{ content.user }}</span>
+      </div>
+      <div class="title-more">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="handleEdit()" mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button (click)="handleDelete(content)" mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>{{ content.email }}</mat-card-subtitle>
   </mat-card-header>
-  <!-- <img mat-card-image src="" alt="Photo of a Shiba Inu"> -->
+
+  <mat-form-field *ngIf="isEdit" class="example-full-width">
+      <input matInput placeholder="Input Here..." [(ngModel)]="content.content">
+  </mat-form-field>
+  
   <mat-card-content>
-    <p>
-      {{content.content}}
-    </p>
+    <div class="full-width">
+      <p *ngIf="!isEdit">{{ content.content }}</p>
+    </div>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
+  <mat-card-actions class="card-bottom">
+    <div>
+        <button *ngIf="!isEdit" mat-button>LIKE</button>
+    </div>
+    <div>
+        <button *ngIf="isEdit" (click)="handleOk(content)" mat-button>Ok</button>
+        <button *ngIf="isEdit" (click)="handleCancle()" mat-button>Cancle</button>
+    </div>
   </mat-card-actions>
 </mat-card>

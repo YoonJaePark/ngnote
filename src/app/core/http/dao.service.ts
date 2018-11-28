@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
-import {Board} from '../../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +8,13 @@ export class DaoService {
 
   private dbPath = '/boards';
 
-  boardsRef: AngularFireList<Board> = null;
+  boardsRef: any;
 
   constructor(private db: AngularFireDatabase) {
     this.boardsRef = db.list(this.dbPath);
   }
 
-  createBoard(board: Board): void {
+  createBoard(board: NewBoard): void {
     this.boardsRef.push(board);
   }
 
